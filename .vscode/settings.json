@@ -1,7 +1,7 @@
 {
-    // "triggerTaskOnSave.tasks": {
-    //     "gen": [
-    //         "*.go"
-    //     ]
-    // }
+    "triggerTaskOnSave.tasks": {
+        "gen": [
+            "*.go"
+        ]
+    }
 }

@@ -3,7 +3,7 @@
     "tasks": [
         {
             "label": "gen",
-            "command": "go run . > test.obj && test.obj",
+            "command": "go run ./cmd/addmerge/. > test.obj && test.obj",
             "type": "shell",
             "group": {
                 "kind": "build",
