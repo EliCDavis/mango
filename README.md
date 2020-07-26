@@ -5,7 +5,7 @@ Follow the tutorial series [here](https://youtu.be/uM5EykxswWs).
 ## Functionality Thus Far
 
 - Building a Ring
-- Adding / Merging Meshes
+- Adding Meshes Together
 
 ## Contributing
 
