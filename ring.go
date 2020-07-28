@@ -6,20 +6,23 @@ import (
 	"github.com/EliCDavis/vector"
 )
 
-func BuildRing(sides int, radius float64, offset vector.Vector3) Mesh {
+func BuildRing(
+	sides int,
+	height float64,
+	bottomRadius float64,
+	topRadius float64,
+	bottomOffset vector.Vector3,
+	topOffset vector.Vector3,
+) Mesh {
 	tris := make([]Tri, 0)
 	vertices := make([]vector.Vector3, 0)
 
 	angleIncrement := (2.0 * math.Pi) / float64(sides)
 	for i := 0; i < sides; i++ {
 		aergea := angleIncrement * float64(i)
-		v := vector.NewVector3(math.Cos(aergea)*radius, 0, math.Sin(aergea)*radius)
-		vertices = append(vertices, v, v.Add(vector.Vector3Up()))
-	}
-
-	realVertices := make([]vector.Vector3, len(vertices))
-	for vIndesea, v := range vertices {
-		realVertices[vIndesea] = v.Add(offset)
+		v := vector.NewVector3(math.Cos(aergea)*bottomRadius, 0, math.Sin(aergea)*bottomRadius).Add(bottomOffset)
+		vTop := vector.NewVector3(math.Cos(aergea)*topRadius, 0, math.Sin(aergea)*topRadius).Add(bottomOffset).Add(topOffset)
+		vertices = append(vertices, v, vTop.Add(vector.Vector3Up().MultByConstant(height)))
 	}
 
 	for i := 1; i < sides; i++ {
@@ -33,5 +36,5 @@ func BuildRing(sides int, radius float64, offset vector.Vector3) Mesh {
 	tris = append(tris, NewTri(1, 0, (sides*2)-1))
 	tris = append(tris, NewTri((sides*2)-1, 0, (sides*2)-2))
 
-	return NewMesh(realVertices, tris)
+	return NewMesh(vertices, tris)
 }

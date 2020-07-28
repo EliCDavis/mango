@@ -107,8 +107,8 @@ func main() {
 	// topLayer := mango.BuildRing(30, 0.9, vector.Vector3Up().MultByConstant(2))
 	// MergeByRounding(bottomLayer, MergeByRounding(middleLayer, topLayer, 0), 0).ToOBJ(os.Stdout)
 
-	bottomLayer := mango.BuildRing(30, 3, vector.Vector3Up().MultByConstant(0))
-	middleLayer := mango.BuildRing(24, 2, vector.Vector3Up().MultByConstant(1))
-	topLayer := mango.BuildRing(16, 1, vector.Vector3Up().MultByConstant(2))
+	bottomLayer := mango.BuildRing(30, 1, 3, 3, vector.Vector3Up().MultByConstant(0), vector.Vector3Zero())
+	middleLayer := mango.BuildRing(24, 1, 2, 2, vector.Vector3Up().MultByConstant(1), vector.Vector3Zero())
+	topLayer := mango.BuildRing(16, 1, 1, 1, vector.Vector3Up().MultByConstant(2), vector.Vector3Zero())
 	bottomLayer.Add(middleLayer).Add(topLayer).ToOBJ(os.Stdout)
 }

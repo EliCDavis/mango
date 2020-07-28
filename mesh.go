@@ -21,7 +21,7 @@ func NewMesh(vertices []vector.Vector3, triangles []Tri) Mesh {
 var emptyMesh = Mesh{}
 
 // NewEmptyMesh creates a new mesh with no faces or triangles
-func NewEmptyMesh(vertices []vector.Vector3, triangles []Tri) Mesh {
+func NewEmptyMesh() Mesh {
 	return emptyMesh
 }
 
